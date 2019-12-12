@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container main-part">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}} 
+        <input type = "submit" value = "Request" class = "w-100 text-white text-center my-2 btn btn-info">
+        </form>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock content %}
