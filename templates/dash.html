@@ -7,7 +7,10 @@
 
 <div class="container main-part">
 <div class="row">
-
+{% if user.user_type == 'Service Provider' %}
+<h1> <a href = "{% url 'hire' %}" class = "btn btn-success"> Post New Job </a> </h1>
+{% else %}
+{% endif %}
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -16,6 +19,17 @@
 </ul>
 {% endif %}
 
+{% comment %} {% if  %}
+
+user status with service Provider should not have access to other jobs while
+user status with service render should only have access to jobs posted by service providers
+{% else %}
+
+{% endif %} {% endcomment %}
+
+{% if  user.user_type == 'Service Provider' %}
+
+{% else %}
 {% if services %}
 
     {% for service in services %}
@@ -46,6 +60,8 @@
     {% endfor %}
 
 {% endif %}
+{% endif %}
+
 
 </div>
 </div>
