@@ -18,7 +18,7 @@ class serviceRequest(models.Model):
     class Meta:
         ordering = ['-id']
 
-class serviceRender(models.Model):
+class serviceProvider(models.Model):
     # manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # service_name = models.ForeignKey(serviceRequest, on_delete=models.CASCADE)
     service_name = models.ForeignKey(serviceRequest, on_delete=models.CASCADE, default=True)
