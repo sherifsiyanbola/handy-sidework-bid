@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import serviceRequest, serviceProvider
+from .models import serviceRender, serviceProvider
 
 class HandyAdmin(admin.ModelAdmin):
     # class ProjectAdmin(ImportExportModelAdmin):
@@ -10,7 +10,7 @@ class HandyAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(serviceRequest)
 admin.site.register(serviceProvider)
+admin.site.register(serviceRender)
 
 

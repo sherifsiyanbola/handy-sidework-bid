@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class serviceRequest(models.Model):
+class serviceProvider(models.Model):
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=250)
-    description = models.CharField(max_length=250)
+    description = models.CharField(max_length=250, blank=True)
     location = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=datetime.now)
 
@@ -18,10 +18,10 @@ class serviceRequest(models.Model):
     class Meta:
         ordering = ['-id']
 
-class serviceProvider(models.Model):
+class serviceRender(models.Model):
     # manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # service_name = models.ForeignKey(serviceRequest, on_delete=models.CASCADE)
-    service_name = models.ForeignKey(serviceRequest, on_delete=models.CASCADE, default=True)
+    service_name = models.ForeignKey(serviceProvider, on_delete=models.CASCADE, default=True)
     mycost = models.IntegerField()
     render_name = models.CharField(max_length=250)
     render_email = models.CharField(max_length=200)
