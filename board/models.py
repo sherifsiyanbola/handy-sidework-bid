@@ -18,7 +18,7 @@ class serviceProvider(models.Model):
     class Meta:
         ordering = ['-id']
 
-class inneedofservice(models.Model):
+class inNeedOfService(models.Model):
     # manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # service_name = models.ForeignKey(serviceRequest, on_delete=models.CASCADE)
     service_name = models.ForeignKey(serviceProvider, on_delete=models.CASCADE, default=True)
