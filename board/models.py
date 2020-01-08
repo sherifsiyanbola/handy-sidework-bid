@@ -18,7 +18,7 @@ class serviceProvider(models.Model):
     class Meta:
         ordering = ['-id']
 
-class serviceRender(models.Model):
+class inneedofservice(models.Model):
     # manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # service_name = models.ForeignKey(serviceRequest, on_delete=models.CASCADE)
     service_name = models.ForeignKey(serviceProvider, on_delete=models.CASCADE, default=True)
@@ -26,7 +26,8 @@ class serviceRender(models.Model):
     render_name = models.CharField(max_length=250)
     render_email = models.CharField(max_length=200)
     location = models.CharField(max_length=250, blank=True)
-    are_you_available = models.CharField(max_length=50, blank=True)
+    available_from = models.DateField()
+    available_to = models.DateField()
 
     def __int__(self):
         return self.mycost

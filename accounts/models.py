@@ -8,7 +8,7 @@ class CustomUser(AbstractUser):
     
     phone_number = models.CharField(max_length=100)
     user_type = models.CharField( max_length = 250, choices= (
-        ('Service Render', 'Service Render'),
+        ('In need of service', 'In need of service'),
         ('Service Provider', 'Service Provider')
     ))
     i_will_be_available_in = models.CharField(max_length=250, blank=True)

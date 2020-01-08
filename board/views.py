@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import serviceRender, serviceProvider
+from .models import inneedofservice, serviceProvider
 from django.views.generic import ListView, DetailView
 from django.db.models import Q #Help in multiple filtering
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -37,8 +37,8 @@ class serviceView(DetailView):
 
 class requestServiceView(CreateView):
     template_name = 'apply.html'
-    model = serviceRender
-    fields = ['service_name', 'mycost', 'render_name', 'render_email', 'location', 'are_you_available']
+    model = inneedofservice
+    fields = ['service_name', 'mycost', 'render_name', 'render_email', 'location', 'available_from', 'avaulable_to']
 
     def form_valid(self,form):
         instance = form.save(commit=False)
@@ -49,7 +49,7 @@ class requestServiceView(CreateView):
 
     def get_queryset(self):
         return super().get_queryset()
-        return serviceRender.filter(manager=self.request.user)
+        return inneedofservice.filter(manager=self.request.user)
     
 class hireView(CreateView):
     model = serviceProvider
@@ -64,7 +64,7 @@ class hireView(CreateView):
         return redirect('dash')
 
 class notificationView(ListView):
-    model = serviceRender
+    model = inneedofservice
     template_name = "notification.html"
     context_object_name = "notifications"
 
