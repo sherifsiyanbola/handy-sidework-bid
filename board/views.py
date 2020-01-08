@@ -38,7 +38,7 @@ class serviceView(DetailView):
 class requestServiceView(CreateView):
     template_name = 'apply.html'
     model = inNeedOfService
-    fields = ['service_name', 'mycost', 'render_name', 'render_email', 'location', 'available_from', 'avaulable_to']
+    fields = ['service_name', 'mycost', 'render_name', 'render_email', 'location', 'available_from', 'available_to']
 
     def form_valid(self,form):
         instance = form.save(commit=False)
