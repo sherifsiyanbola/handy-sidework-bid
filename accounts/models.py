@@ -11,7 +11,7 @@ class CustomUser(AbstractUser):
         ('In need of service', 'In need of service'),
         ('Service Provider', 'Service Provider')
     ))
-    i_will_be_available_in = models.CharField(max_length=250, blank=True)
+    i_will_be_available_in = models.CharField(max_length=250, blank=False)
 
     def __str__(self):
         return self.email
